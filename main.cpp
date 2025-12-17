@@ -233,7 +233,7 @@ void printResult(FrameParser& parser) {
     }
 }
 
-int main() {
+int main_default() {
     FrameParser parser;
 
     // Test 1: Valid frame with correct checksum
@@ -340,4 +340,15 @@ int main() {
     }
 
     return 0;
+}
+
+int main_callback();
+int main_template();
+int main_combined();
+
+int main() {
+  //main_default();
+  main_callback();
+  //main_template();
+  //main_combined();
 }

@@ -149,9 +149,15 @@ public:
     lastError = ParseError::NONE;
   }
 
-  const std::vector<T>& getObjects() const { return parsedObjects; }
-  bool hasError() const { return lastError != ParseError::NONE; }
-  ParseError getError() const { return lastError; }
+  const std::vector<T>& getObjects() const {
+    return parsedObjects;
+  }
+  bool hasError() const {
+    return lastError != ParseError::NONE;
+  }
+  ParseError getError() const {
+    return lastError;
+  }
 
 private:
   void parseObjects() {
@@ -167,13 +173,14 @@ private:
 };
 
 // Helper to calculate checksum
-uint8_t calcChecksum(const uint8_t* data, size_t len) {
+static uint8_t calcChecksum(const uint8_t* data, size_t len) {
   uint8_t cs = 0;
-  for (size_t i = 0; i < len; ++i) cs += data[i];
+  for (size_t i = 0; i < len; ++i)
+    cs += data[i];
   return cs;
 }
 
-int main() {
+int main_template() {
   std::cout << "=== Template Parser Demo ===" << std::endl;
 
   // Parser for Object structs (marker 0x42)
